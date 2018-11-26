@@ -1,0 +1,81 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Pragma Brewery</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Custom Icons -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/weather-icons.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600" rel="stylesheet">
+
+    <!-- Local Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/css/main.css" />
+
+</head>
+
+<body>
+    
+    <!-- Floating Header -->
+    <nav class="navbar sticky-top navbar-light bg-light justify-content-between">
+
+        <a class="navbar-brand" href="#">Pragma Brewery</a>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="card button" href="/add_delivery">
+                    <i class="fas fa-plus"></i>
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- Information Grid -->
+    <div class="container">
+
+        <!-- Local Weather -->
+        <!--<div class="row">
+
+            <div class="col-12">
+                <div class="card flex">
+
+                    <div>
+                        <span class="overline">December 12</span>
+                        <h6>Sydney, 38°</h6>
+                    </div>
+
+                    <div class="weather-icon">
+                        <i class="wi wi-day-sunny"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>-->
+
+        <!-- Empty Text -->
+        <div class="empty">
+            <p>No deliveries available yet</p>
+        </div>
+
+        <!-- Dynamic Information -->
+        <div id="dynamic_information" class="row" />
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/static/scripts/dynamic_grid.js"></script>
+
+</body>
+</html>

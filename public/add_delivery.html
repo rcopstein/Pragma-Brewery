@@ -1,0 +1,130 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Pragma Brewery</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+        <!-- Custom Icons -->
+        <link rel="stylesheet" type="text/css" media="screen" href="/static/css/weather-icons.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+        <!-- Custom Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600" rel="stylesheet">
+
+        <!-- Local Styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="/static/css/main.css" />
+
+    </head>
+
+    <body>
+        
+        <!-- Floating Header -->
+        <nav class="navbar sticky-top navbar-light bg-light justify-content-between">
+
+            <a class="navbar-brand" href="#">Pragma Brewery</a>
+
+        </nav>
+
+        <!-- Content -->
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12 col-lg-8 offset-lg-2">
+
+                    <form class="card" action="/add_delivery/send">
+
+                        <!-- Beer Type -->
+                        <div class="form-group">
+                            <label for="beerType"><i class="fas fa-beer accent"></i> Beer Type</label>
+                            <select class="form-control" id="beerType" name="beerType">
+                                {{#each beers}}
+                                    <option>{{this}}</option>
+                                {{/each}}
+                            </select>
+                            <small id="beer-details" class="form-text text-muted">This beer must be transported between -8° and 4°.</small>
+                        </div>
+
+                        <!-- Truck and Driver -->
+                        <div class="form-group row">
+                            <label class="col-md-2 col-sm-12 col-form-label" for="driver">Driver</label>
+                            <div class="col-sm-12 col-md-10">
+                                <select class="form-control" id="driver" name="driver">
+                                    {{#each drivers}}
+                                        <option>{{this}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-2 col-sm-12 col-form-label" for="truck">Truck</label>
+                            <div class="col-sm-12 col-md-10">
+                                <select class="form-control" id="truck" name="truck">
+                                    {{#each trucks}}
+                                    <option>{{this}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Details -->
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label for="from">From</label>
+                                <div>
+                                    <select class="form-control" id="from" name="from">
+                                        <option>Bankstown</option>
+                                        <option>Castle Hill</option>
+                                        <option>Macquarie Park</option>
+                                        <option>Mona Vale</option>
+                                        <option>Liverpool</option>
+                                        <option>Richmond</option>
+                                        <option>Campbelltown</option>
+                                        <option>Springwood</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6 col-sm-12">
+                                <label for="to">To</label>
+                                <div>
+                                    <select class="form-control" id="to" name="to">
+                                        <option>Bankstown</option>
+                                        <option>Castle Hill</option>
+                                        <option>Macquarie Park</option>
+                                        <option>Mona Vale</option>
+                                        <option>Liverpool</option>
+                                        <option>Richmond</option>
+                                        <option>Campbelltown</option>
+                                        <option>Springwood</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Send -->
+                        <button type="submit" class="btn btn-primary">Add Delivery</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="/static/scripts/dynamic_temperature.js"></script>
+
+    </body>
+
+</html>

@@ -1,0 +1,54 @@
+Pragma Brewery
+==============
+
+Developer: Rafael Copstein
+Date: November 26th, 2018
+
+# The Solution
+
+Given the brewery's problem with keeping track of the temperatures 
+of each truck and if it has not gone outside of the boundaries for
+acceptable temperatures of each beer, I propose the implementation
+of a control panel. 
+In this control panel, different kinds of beer can be associated
+with a truck, driver and locations to compose a delivery. Every
+delivery shows up in a page where the temperature of the truck is 
+updated in real time and, if it falls outside of the limits for 
+the specific type of beer being transported, the system shows an
+alert.
+The system is built in a responsive manner so that it can be used
+by a wide range of devices from desktop computers to mobile phones
+as long as they have internet access. Also, deliveries added from
+different devices show up in real time on every other device that
+is also connected to the system.
+With this solution, each driver could access the system from it's
+own smartphone and check the temperature of the truck in real time.
+In case of an alert, it can act accordingly. There can also be a
+user connected from the company's headquarters overlooking all
+deliveries so that the driver can be warned in case a device is not
+available or if the driver is not able to consult it.
+
+# Software Architecture
+
+The implementation of this solution was built (as recommended) using
+JavaScript on the NodeJS framework. The software consists of two main
+layers: the server and the client.
+The server exposes an API for serving the pages and it utilizes the
+Socket.IO library for exposing an event-based bi-directional 
+communication channel, which allows for real-time updates to take
+place. The server also uses Handlebars.js to dynamically build a page
+for adding new deliveries.
+The client also relies on the Socket.IO library for receiving events from
+the server and dynamically updating it's interface. It shows all deliveries
+in a grid if the screen can accomodate it or as a list on smaller devices.
+
+# Future Work
+
+In a 2.0 version I would add the option for filtering deliveries on different
+devices such that a driver is able to see only the deliveries on his truck.
+The central, on the other hand, could have the deliveries categorized by truck
+and driver, so reports could be generated accordingly.
+I would also improve the notifications system to better support mobile devices
+so that the driver can receive notifications even when the system is not running.
+Other interesting features would be to show the current temperature outside of the
+truck, local date, and the route for the current delivery.
